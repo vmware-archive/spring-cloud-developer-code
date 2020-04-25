@@ -5,16 +5,14 @@ import org.springframework.web.client.RestOperations;
 public class ProjectClient {
 
     private final RestOperations restOperations;
-    private final RegistrationServerConfig endpointConfig;
+    private final String endpoint;
 
-    public ProjectClient(RestOperations restOperations,
-                         RegistrationServerConfig endpointConfig) {
+    public ProjectClient(RestOperations restOperations, String registrationServerEndpoint) {
         this.restOperations = restOperations;
-        this.endpointConfig = endpointConfig;
+        this.endpoint = registrationServerEndpoint;
     }
 
     public ProjectInfo getProject(long projectId) {
-        return restOperations.getForObject(endpointConfig.getEndpoint()
-                + "/projects/" + projectId, ProjectInfo.class);
+        return restOperations.getForObject(endpoint + "/projects/" + projectId, ProjectInfo.class);
     }
 }
