@@ -9,6 +9,7 @@ dependencies {
 
     implementation "de.codecentric:chaos-monkey-spring-boot:$chaosMonkeyVersion"
     implementation "de.codecentric:spring-boot-admin-starter-client:$springBootAdminVersion"
+    implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
