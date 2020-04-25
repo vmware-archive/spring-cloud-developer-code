@@ -16,7 +16,8 @@ public class ProjectClient {
         this.projectClientCache = projectClientCache;
     }
 
-    @HystrixCommand(fallbackMethod = "getProjectFromCache")
+    @HystrixCommand(commandKey = "getProject",
+                    fallbackMethod = "getProjectFromCache")
     public ProjectInfo getProject(long projectId) {
         ProjectInfo projectInfo = restOperations.getForObject(endpoint + "/projects/" + projectId, ProjectInfo.class);
 
@@ -25,6 +26,7 @@ public class ProjectClient {
         return projectInfo;
     }
 
+    @HystrixCommand(commandKey = "getProjectFromCache")
     public ProjectInfo getProjectFromCache(long projectId) {
         return projectClientCache.get(projectId);
     }
