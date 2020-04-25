@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 
 import javax.annotation.PostConstruct;
@@ -14,7 +13,6 @@ import java.util.TimeZone;
 
 import static io.pivotal.pal.tracker.projects.repository.ProjectFields.projectFieldsBuilder;
 
-@EnableDiscoveryClient
 @SpringBootApplication
 @ComponentScan({
         "io.pivotal.pal.tracker.accounts",

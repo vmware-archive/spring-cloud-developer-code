@@ -96,6 +96,5 @@
         <module>applications/registration-server</module>
         <module>applications/timesheets-server</module>
         <module>platform-services/monitoring/spring-boot-admin-server</module>
-        <module>platform-services/spring-cloud/eureka-server</module>
     </modules>
 </project>
