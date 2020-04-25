@@ -1,13 +1,13 @@
 package io.pivotal.pal.tracker.projects;
 
-import io.pivotal.pal.tracker.projects.data.ProjectDataGateway;
-import io.pivotal.pal.tracker.projects.data.ProjectFields;
-import io.pivotal.pal.tracker.projects.data.ProjectRecord;
+import io.pivotal.pal.tracker.projects.repository.ProjectDataGateway;
+import io.pivotal.pal.tracker.projects.repository.ProjectFields;
+import io.pivotal.pal.tracker.projects.repository.ProjectRecord;
 import org.junit.Test;
 
 import java.util.List;
 
-import static io.pivotal.pal.tracker.projects.data.ProjectFields.projectFieldsBuilder;
+import static io.pivotal.pal.tracker.projects.repository.ProjectFields.projectFieldsBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ProjectDataGatewayTest {

@@ -1,8 +1,12 @@
-rootProject.name = 'tracker'
+rootProject.name = 'pal-tracker'
 include(':components:accounts')
 include(':components:users')
 include(':components:projects')
 include(':components:timesheets')
 include(':components:rest-support')
+include(':instrumentation:instrumentation-support')
+include(':instrumentation:projects-instrumentation')
+include(':instrumentation:timesheets-instrumentation')
 include(':applications:registration-server')
 include(':applications:timesheets-server')
+include(':platform-services:monitoring:spring-boot-admin-server')

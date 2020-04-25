@@ -3,7 +3,6 @@ plugins {
     id 'com.gorylenko.gradle-git-properties' version '1.5.1' apply false
 }
 
-
 allprojects {
     group = 'io.pivotal.pal.tracker'
     version = '2.1.136'

@@ -11,12 +11,12 @@
     </parent>
 
     <groupId>io.pivotal.pal.tracker</groupId>
-    <artifactId>tracker</artifactId>
-    <version>1.0.0</version>
+    <artifactId>pal-tracker</artifactId>
+    <version>2.1.136</version>
     <packaging>pom</packaging>
 
-    <name>tracker</name>
-    <description>PAL Tracker Distributed for Spring Cloud</description>
+    <name>pal-tracker</name>
+    <description>PAL Tracker for Spring Cloud</description>
 
     <properties>
         <!-- Java Version -->
@@ -72,26 +72,17 @@
         </dependency>
     </dependencies>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring.cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <modules>
         <module>components/accounts</module>
         <module>components/users</module>
         <module>components/projects</module>
         <module>components/timesheets</module>
         <module>components/rest-support</module>
+        <module>instrumentation/instrumentation-support</module>
+        <module>instrumentation/projects-instrumentation</module>
+        <module>instrumentation/timesheets-instrumentation</module>
         <module>applications/registration-server</module>
         <module>applications/timesheets-server</module>
-        <module>platform-services/spring-cloud/config-server</module>
+        <module>platform-services/monitoring/spring-boot-admin-server</module>
     </modules>
 </project>

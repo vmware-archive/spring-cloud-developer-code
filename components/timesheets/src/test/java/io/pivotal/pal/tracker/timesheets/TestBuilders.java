@@ -1,14 +1,14 @@
 package io.pivotal.pal.tracker.timesheets;
 
-import io.pivotal.pal.tracker.timesheets.data.TimeEntryFields;
-import io.pivotal.pal.tracker.timesheets.data.TimeEntryRecord;
+import io.pivotal.pal.tracker.timesheets.repository.TimeEntryFields;
+import io.pivotal.pal.tracker.timesheets.repository.TimeEntryRecord;
 
 import java.time.LocalDate;
 
 import static io.pivotal.pal.tracker.timesheets.TimeEntryForm.timeEntryFormBuilder;
 import static io.pivotal.pal.tracker.timesheets.TimeEntryInfo.timeEntryInfoBuilder;
-import static io.pivotal.pal.tracker.timesheets.data.TimeEntryFields.timeEntryFieldsBuilder;
-import static io.pivotal.pal.tracker.timesheets.data.TimeEntryRecord.timeEntryRecordBuilder;
+import static io.pivotal.pal.tracker.timesheets.repository.TimeEntryFields.timeEntryFieldsBuilder;
+import static io.pivotal.pal.tracker.timesheets.repository.TimeEntryRecord.timeEntryRecordBuilder;
 
 public class TestBuilders {
 

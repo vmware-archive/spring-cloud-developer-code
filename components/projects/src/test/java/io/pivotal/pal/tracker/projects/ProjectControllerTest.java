@@ -1,7 +1,7 @@
 package io.pivotal.pal.tracker.projects;
 
-import io.pivotal.pal.tracker.projects.data.ProjectDataGateway;
-import io.pivotal.pal.tracker.projects.data.ProjectRecord;
+import io.pivotal.pal.tracker.projects.repository.ProjectDataGateway;
+import io.pivotal.pal.tracker.projects.repository.ProjectRecord;
 import org.junit.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,9 +26,7 @@ public class ProjectControllerTest {
         ProjectRecord record = testProjectRecordBuilder().build();
         doReturn(record).when(gateway).create(any());
 
-
         ResponseEntity<ProjectInfo> result = controller.create(testProjectFormBuilder().build());
-
 
         verify(gateway).create(testProjectFieldsBuilder().build());
         assertThat(result.getStatusCode()).isEqualTo(HttpStatus.CREATED);
@@ -38,17 +36,16 @@ public class ProjectControllerTest {
     @Test
     public void testList() {
         List<ProjectRecord> records = asList(
-            testProjectRecordBuilder().id(12).build(),
-            testProjectRecordBuilder().id(13).build()
+                testProjectRecordBuilder().id(12).build(),
+                testProjectRecordBuilder().id(13).build()
         );
         doReturn(records).when(gateway).findAllByAccountId(anyLong());
 
-
-        List<ProjectInfo> result = controller.list(23);
-
+        ResponseEntity<List<ProjectInfo>> result = controller.list(23);
 
         verify(gateway).findAllByAccountId(23L);
-        assertThat(result).containsExactlyInAnyOrder(
+        assertThat(result.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(result.getBody()).containsExactlyInAnyOrder(
                 testProjectInfoBuilder().id(12).build(),
                 testProjectInfoBuilder().id(13).build()
         );
@@ -59,21 +56,20 @@ public class ProjectControllerTest {
         ProjectRecord record = testProjectRecordBuilder().id(99).build();
         doReturn(record).when(gateway).find(anyLong());
 
-
-        ProjectInfo result = controller.get(99);
-
+        ResponseEntity<ProjectInfo> result = controller.get(99);
 
         verify(gateway).find(99);
-        assertThat(result).isEqualTo(testProjectInfoBuilder().id(99).build());
+        assertThat(result.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(result.getBody()).isEqualTo(testProjectInfoBuilder().id(99).build());
     }
 
     @Test
     public void testGet_WithNull() {
         doReturn(null).when(gateway).find(anyLong());
 
-        ProjectInfo result = controller.get(88);
+        ResponseEntity<ProjectInfo> result = controller.get(88);
 
         verify(gateway).find(88);
-        assertThat(result).isNull();
+        assertThat(result.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
     }
 }

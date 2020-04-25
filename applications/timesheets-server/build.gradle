@@ -2,6 +2,5 @@ apply from: "../server.gradle"
 
 dependencies {
     implementation project(':components:timesheets')
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation project(':instrumentation:timesheets-instrumentation')
 }
