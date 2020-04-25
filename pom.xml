@@ -72,6 +72,18 @@
         </dependency>
     </dependencies>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Greenwich.SR3</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <modules>
         <module>components/accounts</module>
         <module>components/users</module>
@@ -84,5 +96,6 @@
         <module>applications/registration-server</module>
         <module>applications/timesheets-server</module>
         <module>platform-services/monitoring/spring-boot-admin-server</module>
+        <module>platform-services/spring-cloud/config-server</module>
     </modules>
 </project>
