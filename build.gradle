@@ -50,7 +50,7 @@ allprojects {
 subprojects {
     apply plugin: 'java-library'
 
-repositories {
+    repositories {
         mavenLocal()
         mavenCentral()
     }
