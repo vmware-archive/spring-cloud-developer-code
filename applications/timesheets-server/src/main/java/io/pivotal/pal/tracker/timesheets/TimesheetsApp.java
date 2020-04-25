@@ -22,7 +22,7 @@ public class TimesheetsApp {
     @Bean
     ProjectClient projectClient(
             RestOperations restOperations,
-            RegistrationServerConfigProperties endpointConfig
+            RegistrationServerConfig endpointConfig
     ) {
         return new ProjectClient(restOperations, endpointConfig);
     }
