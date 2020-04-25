@@ -3,6 +3,8 @@ package io.pivotal.pal.tracker.timesheets;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.web.client.RestOperations;
 
+import java.net.SocketTimeoutException;
+
 public class ProjectClient {
     private final RestOperations restOperations;
     private final String endpoint;
