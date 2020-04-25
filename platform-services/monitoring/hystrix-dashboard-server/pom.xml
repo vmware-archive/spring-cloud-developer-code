@@ -7,25 +7,22 @@
         <groupId>io.pivotal.pal.tracker</groupId>
         <artifactId>pal-tracker</artifactId>
         <version>2.1.136</version>
-        <relativePath>../..</relativePath>
+        <relativePath>../../..</relativePath>
     </parent>
 
-    <artifactId>timesheets</artifactId>
-    <packaging>jar</packaging>
+    <artifactId>hystrix-dashboard-server</artifactId>
 
-    <name>timesheets</name>
-    <description>PAL Tracker Timesheets</description>
+    <name>hystrix-dashboard-server</name>
+    <description>Hystrix Dashboard Server</description>
 
     <dependencies>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>rest-support</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.netflix.hystrix</groupId>
-            <artifactId>hystrix-javanica</artifactId>
-            <version>${hystrix.javanica.version}</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
         </dependency>
     </dependencies>
 
