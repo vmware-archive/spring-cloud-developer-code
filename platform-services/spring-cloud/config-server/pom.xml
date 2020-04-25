@@ -7,21 +7,28 @@
         <groupId>io.pivotal.pal.tracker</groupId>
         <artifactId>tracker</artifactId>
         <version>1.0.0</version>
-        <relativePath>../..</relativePath>
+        <relativePath>../../..</relativePath>
     </parent>
 
-    <artifactId>users</artifactId>
-    <packaging>jar</packaging>
+    <artifactId>config-server</artifactId>
 
-    <name>users</name>
-    <description>PAL Tracker Users</description>
+    <name>config-server</name>
+    <description>PAL Tracker Config Server</description>
 
     <dependencies>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>rest-support</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

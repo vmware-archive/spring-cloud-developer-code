@@ -1,12 +1,12 @@
 package io.pivotal.pal.tracker.projects;
 
-import io.pivotal.pal.tracker.projects.repository.ProjectFields;
-import io.pivotal.pal.tracker.projects.repository.ProjectRecord;
+import io.pivotal.pal.tracker.projects.data.ProjectFields;
+import io.pivotal.pal.tracker.projects.data.ProjectRecord;
 
 import static io.pivotal.pal.tracker.projects.ProjectForm.projectFormBuilder;
 import static io.pivotal.pal.tracker.projects.ProjectInfo.projectInfoBuilder;
-import static io.pivotal.pal.tracker.projects.repository.ProjectFields.projectFieldsBuilder;
-import static io.pivotal.pal.tracker.projects.repository.ProjectRecord.projectRecordBuilder;
+import static io.pivotal.pal.tracker.projects.data.ProjectFields.projectFieldsBuilder;
+import static io.pivotal.pal.tracker.projects.data.ProjectRecord.projectRecordBuilder;
 
 public class TestBuilders {
 

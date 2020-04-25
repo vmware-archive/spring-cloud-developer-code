@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.pivotal.pal.tracker</groupId>
-        <artifactId>pal-tracker</artifactId>
-        <version>2.1.136</version>
+        <artifactId>tracker</artifactId>
+        <version>1.0.0</version>
         <relativePath>../..</relativePath>
     </parent>
 
@@ -21,11 +21,6 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>rest-support</artifactId>
             <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.netflix.hystrix</groupId>
-            <artifactId>hystrix-javanica</artifactId>
-            <version>${hystrix.javanica.version}</version>
         </dependency>
     </dependencies>
 

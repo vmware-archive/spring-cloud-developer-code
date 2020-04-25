@@ -4,5 +4,6 @@ dependencies {
     implementation project(':components:accounts')
     implementation project(':components:users')
     implementation project(':components:projects')
-    implementation project(':instrumentation:projects-instrumentation')
+    implementation'org.springframework.boot:spring-boot-starter-actuator'
+    implementation'org.springframework.boot:spring-boot-starter-web'
 }

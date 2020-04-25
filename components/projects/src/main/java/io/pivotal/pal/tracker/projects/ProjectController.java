@@ -1,8 +1,8 @@
 package io.pivotal.pal.tracker.projects;
 
-import io.pivotal.pal.tracker.projects.repository.ProjectDataGateway;
-import io.pivotal.pal.tracker.projects.repository.ProjectFields;
-import io.pivotal.pal.tracker.projects.repository.ProjectRecord;
+import io.pivotal.pal.tracker.projects.data.ProjectDataGateway;
+import io.pivotal.pal.tracker.projects.data.ProjectFields;
+import io.pivotal.pal.tracker.projects.data.ProjectRecord;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 import static io.pivotal.pal.tracker.projects.ProjectInfo.projectInfoBuilder;
-import static io.pivotal.pal.tracker.projects.repository.ProjectFields.projectFieldsBuilder;
+import static io.pivotal.pal.tracker.projects.data.ProjectFields.projectFieldsBuilder;
 import static java.util.stream.Collectors.toList;
 
 @RestController
@@ -30,22 +30,22 @@ public class ProjectController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ProjectInfo>> list(@RequestParam long accountId) {
-        return ResponseEntity.ok(gateway.findAllByAccountId(accountId)
+    public List<ProjectInfo> list(@RequestParam long accountId) {
+        return gateway.findAllByAccountId(accountId)
                 .stream()
                 .map(this::present)
-                .collect(toList()));
+                .collect(toList());
     }
 
     @GetMapping("/{projectId}")
-    public ResponseEntity<ProjectInfo> get(@PathVariable long projectId) {
+    public ProjectInfo get(@PathVariable long projectId) {
         ProjectRecord record = gateway.find(projectId);
 
         if (record != null) {
-            return ResponseEntity.ok(present(record));
-        } else {
-            return ResponseEntity.notFound().build();
+            return present(record);
         }
+
+        return null;
     }
 
 
