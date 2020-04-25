@@ -1,5 +1,7 @@
 package io.pivotal.pal.tracker.timesheets;
 
+import com.netflix.loadbalancer.IPing;
+import com.netflix.loadbalancer.PingUrl;
 import io.micrometer.core.instrument.MeterRegistry;
 import io.pivotal.pal.tracker.timesheets.controller.TimeEntryControllerAspect;
 import io.pivotal.pal.tracker.timesheets.repository.TimeEntryRepositoryAspect;
@@ -41,5 +43,10 @@ public class TimeEntryInstrumentationConfig {
     @Bean
     public TimeEntryRepositoryAspect timeEntryRepositoryAspect(MeterRegistry meterRegistry) {
         return new TimeEntryRepositoryAspect(meterRegistry);
+    }
+
+    @Bean
+    public IPing ribbonPing() {
+        return new PingUrl(false, "/actuator/health");
     }
 }
