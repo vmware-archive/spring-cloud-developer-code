@@ -44,6 +44,13 @@ public final class TimeEntryControllerAspect {
         exceptionCount.countException();
     }
 
+    @After("execution(" +
+            "org.springframework.http.ResponseEntity " +
+            "io.pivotal.pal.tracker.timesheets.controller.TimeEntryControllerAdvice.handleSocketTimeoutException())")
+    public void countSocketTimeoutException() {
+        exceptionCount.countException();
+    }
+
     @Around("execution(" +
             "org.springframework.boot.actuate.health.Health TimeEntryControllerHealthIndicator.health())")
     public Health reportHealthIndicator(ProceedingJoinPoint pjp) {

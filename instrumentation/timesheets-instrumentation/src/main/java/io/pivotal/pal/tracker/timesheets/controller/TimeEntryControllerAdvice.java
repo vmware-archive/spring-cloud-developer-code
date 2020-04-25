@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.net.SocketTimeoutException;
+
 @RestControllerAdvice
 public class TimeEntryControllerAdvice {
     private final Logger logger = LoggerFactory.getLogger(TimeEntryController.class);
@@ -41,6 +43,11 @@ public class TimeEntryControllerAdvice {
 
         controllerManager.setStatusDown();
         repositoryManager.setStatusDown();
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
+
+    @ExceptionHandler(value = SocketTimeoutException.class)
+    public ResponseEntity handleSocketTimeoutException() {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
